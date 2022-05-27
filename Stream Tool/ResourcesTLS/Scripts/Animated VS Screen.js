@@ -213,9 +213,10 @@ async function getData(scInfo) {
 
 		}
 
+		console.log(score[0], score[1])
 
 		//if the scores for both sides are 0, hide the thing
-		if (score[0] == 0 && score[1] == 0) {
+		if (!(score[0] > 0 || score[1] > 0)) {
 			scoreOverlay.style.opacity = 0;
 		}
 

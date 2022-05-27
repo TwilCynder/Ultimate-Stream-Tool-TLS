@@ -1,0 +1,1 @@
+appliquer changements au système de score (0 par défaut au lieu de unedfined) à tous les overlays
