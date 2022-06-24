@@ -105,6 +105,8 @@ async function getData(scInfo) {
 	const round = scInfo['round'];
 	const tournamentName = scInfo['tournamentName'];
 
+	console.log(tournamentName)
+
 	const caster = scInfo['caster'];
 	
 	twitter1 = caster[0].twitter;

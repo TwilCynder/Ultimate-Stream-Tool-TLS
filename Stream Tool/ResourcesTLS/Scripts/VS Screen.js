@@ -453,6 +453,9 @@ function socialChange2(twitterWrapperID, twitchWrapperID) {
 }
 //function to decide when to change to what
 function updateSocial(mainSocial, mainText, mainBox, otherSocial, otherBox) {
+
+	if (!otherSocial) return;
+
 	//check if this is for twitch or twitter
 	let localSwitch = socialSwitch;
 	if (mainText == "caster1Th" || mainText == "caster2Th") {
