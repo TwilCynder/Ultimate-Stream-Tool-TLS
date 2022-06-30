@@ -68,12 +68,12 @@ async function getData(scInfo) {
 	let bestOf = scInfo['bestOf'];
 	let format = scInfo['format'];
 
-	let caster1 = scInfo['caster1Name'];
+	/*let caster1 = scInfo['caster1Name'];
 	twitter1 = scInfo['caster1Twitter'];
 	twitch1 = scInfo['caster1Twitch'];
 	let caster2 = scInfo['caster2Name'];
 	twitter2 = scInfo['caster2Twitter'];
-	twitch2 = scInfo['caster2Twitch'];;
+	twitch2 = scInfo['caster2Twitch'];;*/
 
 
 	//first, things that will happen only the first time the html loads
@@ -246,7 +246,7 @@ async function getData(scInfo) {
 			{delay: introDelay+.2, x: 0, opacity: 1, ease: "power2.out", duration: fadeInTime}); //to
 
 		//set the caster info
-		updateSocialText("caster1N", caster1, casterSize, "caster1TextBox");
+		/*updateSocialText("caster1N", caster1, casterSize, "caster1TextBox");
 		updateSocialText("caster1Tr", twitter1, twitterSize, "caster1TwitterBox");
 		updateSocialText("caster1Th", twitch1, twitterSize, "caster1TwitchBox");
 		updateSocialText("caster2N", caster2, casterSize, "caster2TextBox");
@@ -279,7 +279,7 @@ async function getData(scInfo) {
 		}
 		if (caster2 == "") {
 			document.getElementById('caster2TextBox').style.opacity = 0;
-		}
+		}*/
 
 
 		//check if the team has a logo we can place on the overlay
@@ -478,7 +478,7 @@ async function getData(scInfo) {
 			});
 		}
 
-
+		/*
 		//update caster 1 info
 		if (document.getElementById('caster1N').textContent != caster1){
 			fadeOut("#caster1TextBox", () => {
@@ -514,6 +514,7 @@ async function getData(scInfo) {
 		if (document.getElementById('caster2Th').textContent != twitch2){
 			updateSocial(twitch2, "caster2Th", "caster2TwitchBox", twitter2, "caster2TwitterBox");
 		}
+		*/
 	}
 }
 
