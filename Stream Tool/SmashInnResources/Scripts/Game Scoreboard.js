@@ -25,10 +25,9 @@ let socialInt2;
 let twitter1, twitch1, twitter2, twitch2;
 let socialSwitch = true; //true = twitter, false = twitch
 const socialInterval = 12000;
-
+const logoInterval = 2000;
 
 let startup = true;
-
 
 window.onload = init;
 
@@ -38,8 +37,17 @@ function init() {
 		getData(scInfo);
 	}
 
-	mainLoop();
-	setInterval( () => { mainLoop(); }, 500); //update interval
+	
+	let logoRotation = new RotatingElements(...getElements(
+		"logo-tls", "logo-soc"
+	))
+
+	setInterval(() => {
+		logoRotation.next();
+	}, logoInterval);
+
+	//mainLoop();
+	//setInterval( () => { mainLoop(); }, 500); //update interval
 }
 
 async function getData(scInfo) {
@@ -289,6 +297,13 @@ async function getData(scInfo) {
 		fadeIn("#teamLogoP1");
 		fadeIn("#teamLogoP2");
 
+		let logoRotation = new RotatingElements(getElements(
+			"logo-tls", "logo-soc"
+		))
+
+		setInterval(() => {
+			logoRotation.next();
+		}, logoInterval);
 
 		startup = false; //next time we run this function, it will skip all we just did
 	}
@@ -612,6 +627,38 @@ function socialChange1(twitterWrapperID, twitchWrapperID) {
 
 	}
 }
+
+function getElements(...args){
+	for (i = 0; i < args.length; i++){
+		args[i] = document.getElementById(args[i]);
+	}
+
+	return args;
+}
+
+class RotatingElements extends Array{
+	constructor(...args){
+		super(...args);
+		this.current = 0;
+		for (i = 1; i < args.length; i++){
+			args[i].style.opacity = 0
+		}
+	}
+
+	next(){
+		let previousElement = this[this.current];
+
+		this.current++;
+		if (this.current >= this.length) this.current = 0;
+
+		let currentElement = this[this.current];
+
+		fadeOut(previousElement, () => {
+			fadeIn(currentElement, 0);
+		})
+	}
+}
+
 //i didnt know how to make it a single function im sorry ;_;
 function socialChange2(twitterWrapperID, twitchWrapperID) {
 
