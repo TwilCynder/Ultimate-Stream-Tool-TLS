@@ -37,17 +37,8 @@ function init() {
 		getData(scInfo);
 	}
 
-	
-	let logoRotation = new RotatingElements(...getElements(
-		"logo-tls", "logo-soc"
-	))
-
-	setInterval(() => {
-		logoRotation.next();
-	}, logoInterval);
-
-	//mainLoop();
-	//setInterval( () => { mainLoop(); }, 500); //update interval
+	mainLoop();
+	setInterval( () => { mainLoop(); }, 500); //update interval
 }
 
 async function getData(scInfo) {
@@ -297,7 +288,7 @@ async function getData(scInfo) {
 		fadeIn("#teamLogoP1");
 		fadeIn("#teamLogoP2");
 
-		let logoRotation = new RotatingElements(getElements(
+		let logoRotation = new RotatingElements(...getElements(
 			"logo-tls", "logo-soc"
 		))
 
